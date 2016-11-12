@@ -1,0 +1,66 @@
+<!DOCTYPE>
+<html ng-app="App">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-touch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.1/ui-bootstrap-tpls.min.js"></script>
+    <script src="../compiled/flipclock.js"></script>
+    <script src="LifePlanner.js"></script>
+    <script src="controller/main.js"></script>
+    <script src="ui-bootstrap-tpls-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/carousel.js">
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/css/xeditable.css">
+    <link rel="stylesheet" href="LifePlanner.css">
+    <link rel="stylesheet" href="../compiled/flipclock.css">
+    <title>Life Planner Version 1.1</title>
+</head>
+
+<body ng-controller="myCtr as main" class="width">
+    
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="#/">Home</a></l>
+                    <!--<li><a href="#/start">Start</a></li>-->
+                    <li><a href="#/start">Add Bucket List Items</a></li>
+                    <li><a href="#/viewbucketlist">prioritize Bucket List Items</a></li>
+                    <li><a href="#/datebucketlist">date Bucket List Items</a></li>
+                    <li><a href="#/addtasks">add tasks to Bucket List Items</a></li>
+                    <li><a href="#/yourbucketlist">Your Bucket List</a></li>
+                    <!--<li><a href="#/resources">Resources</a></li>-->
+
+            </ul>
+        </div>
+    </nav>
+     </div>
+    <div><img class="center image" width="100%" height="200" src="https://npca.s3.amazonaws.com/images/8852/82c1fd5b-f341-4a9a-9887-7ba479740ecd-banner.jpg?1445970871"> </div>
+
+
+
+
+    <ng-view>
+        <!--This is where our html templates will go-->
+    </ng-view>
+
+
+    <!--<nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <button type="button" class="btn btn-default navbar-btn previous">Previous</button>
+            <button type="button" class="btn btn-default navbar-btn next navbar-right">Next</button>
+        </div>
+    </nav>-->
+
+
+    <footer class="center">Copyright 2016</footer>
+    <!--<script src="LifePlanner.js"></script>-->
+</body>
+
+</html>

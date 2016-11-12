@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html ng-app="App">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
+
+    <script src="../compiled/flipclock.js"></script>
+    <script src="LifePlanner.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="LifePlanner.css">
+    <link rel="stylesheet" href="../compiled/flipclock.css">
+    <title>
+      Life Planner Version 1
+    </title>
+  </head>
+  <body ng-controller="myCtr as main">
+<div>
+  <h2 class="headButton">Welcome to the life planner</h2>
+</div>
+
+
+<div class="dropdown">
+  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select Your Bucket List Item here...
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <h2 class="dropdown results" ng-click="main.selectBucket($index)" ng-model="bucketfilter" ng-repeat="bucket in main.bucketList"> {{bucket.name}} </h2>
+  </ul>
+</div>
+
+    <section>
+      <div class="container-fluid">
+        <div  class="inner cover"><br>
+            <div ng-repeat="bucket in main.bucketList | filter:bucketfilter">
+                    <div>
+                        <ul>
+                          <ul><h2 class="center results"> {{bucket.name}} </h2></ul>
+                            <ul>
+                              <li ng-repeat="item in bucket.task"> {{ item }}</li>
+                            </ul>
+                          </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+  </body>
+</html>

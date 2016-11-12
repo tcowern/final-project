@@ -1,0 +1,32 @@
+
+
+<section>
+<div>
+  <h2 class="center">Below if your bucket list!</h2>
+</div>
+<div>
+  <h3 class="headButton center"> You can use it to work toward accomplishisng your goals...or as digital toilet paper when the apocalypse comes...</h3>
+</div>
+
+
+</section>
+
+
+
+
+<section  class="backgroundbucketlist">
+    <div class="container-fluid">
+      <div><br>
+          <div ng-repeat="bucket in main.bucketList ">
+              <div>
+                  <ul>
+                      <ul><h2 class="bucketprint"> {{bucket.name}}, Due {{ bucket.date }}</h2></ul>
+                          <aul>
+                            <li class="taskprint" ng-repeat="item in bucket.task track by $index"><h3> {{ item }}</h3></li>
+                          </ul>
+                        </ul>
+                  </div>
+          </div>
+      </div>
+  </div>
+</section>

@@ -1,0 +1,150 @@
+.width {
+    margin: auto;
+    max-width: 75%;
+}
+
+.clock {
+    margin: auto;
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+}
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.buttonctr {
+    margin: auto;
+    display: block;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+}
+
+.image {
+    width: 100%;
+    height: 20%;
+}
+
+.blue {
+    border-bottom: 3px solid blue;
+}
+
+.headButton {
+    margin: auto;
+    width: 70%;
+}
+
+.button {
+    margin: auto;
+    display: block;
+    width: 50%;
+}
+
+.inner.cover {
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    overflow-y: auto;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px #888;
+}
+
+/*.results:hover {
+    color: red;
+    background-color: black;
+    cursor: pointer;
+}*/
+
+.prioritize {
+    color: black;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    overflow-y: auto;
+    height: 400px;
+    box-shadow: 0 0 10px #888;
+    cursor: move;
+    margin-bottom: 0px;
+}
+
+.tasklist {
+    color: black;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    overflow-y: auto;
+    height: 200px;
+    box-shadow: 0 0 10px #888;
+    cursor: move;
+    margin-bottom: 0px;
+}
+
+.prioritize:hover {
+    color: blue;
+    cursor: pointer;
+
+}
+
+.add:hover {
+    color: blue;
+    cursor: auto;
+
+}
+
+.timer {
+    margin: auto;
+    display: block;
+    padding-left: 70px;
+    width: 50%;
+}
+
+.dropdown {
+    margin: auto;
+    width: 100%;
+    /*border-bottom: 3px solid blue;*/
+    padding: 10px;
+    text-align: center;
+}
+
+.addtask {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    border: black;
+    border-style: solid;
+    padding: 10px;
+}
+
+.tasks {
+    padding: 10px;
+    text-align: left;
+}
+
+.bucketprint {
+    text-align: left;
+    margin-left: 30px;
+}
+
+.taskprint {
+    text-align: left;
+    margin-left: 100px;
+}
+
+.backgroundbucketlist {
+    background: url(http://www.tiptheme.com/wp-content/uploads/2015/07/paper-background-7.jpg) repeat;
+}
+
+.wide {
+    margin: auto;
+    widows: 40%;
+}
+
+.hide {
+    display: none;
+}
+

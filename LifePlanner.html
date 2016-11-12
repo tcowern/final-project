@@ -1,0 +1,99 @@
+<!DOCTYPE>
+<html ng-app="App">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
+    <script src="../compiled/flipclock.js"></script>
+    <script src="LifePlanner.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="LifePlanner.css">
+    <link rel="stylesheet" href="../compiled/flipclock.css">
+    <title>
+        Life Planner Version 1 Start Page
+    </title>
+</head>
+
+<body ng-controller="myCtr as main">
+    <div>
+        <h2 class="headButton">Welcome to the life planner</h2>
+    </div>
+    <div>
+        <h3 class="headButton">First we need to create a "Bucket List". Begin by brainstorming using the form below!</h3>
+    </div>
+    <section class="timer">
+        <!-- This is where the timer will appear -->
+        <div class="clock" style="margin:2em;"></div>
+    </section>
+    <!-- Triggers Timer -->
+    <button type="button" class="btn btn-primary btn-lg button" ng-click="main.startClock()">Start Timer</button>
+    <!-- CongratsModal -->
+    <div class="modal fade" id="congratsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Well Done!</h4>
+                </div><br>
+                <div class="modal-body">
+                    Great Job! Next we will prioritize your Bucket List!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="alert alert-success" role="alert">
+    Good Job!  Click next at the bottom of the page to prioritize your Bucket List!<br>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+    </div>-->
+    <div class="headButton">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg button" data-toggle="modal" data-target="#myModal">
+  Add to your "Bucket List"
+</button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form ng-submit="main.addBucket()">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Enter a Bucket List Item!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>Enter a "Bucket List" item Below</div>
+                        <input class="form-control" ng-model="main.newBucket.name" placeholder="Bucket List Item">
+                        <!--<div>Enter a date for your "Bucket List" item Below ("Don't worry, you can change this later!'")</div>-->
+                        <!--<input class="form-control" ng-show="false" ng-model="main.newBucket.date" placeholder="Date (MM/DD/YYYY)">-->
+
+                    </div>
+                    <div class="modal-footer">
+                        <p class="warning-text">{{main.bucketFormErrMessage}}</p>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary" onclick="main.addAnother()">Submit</button>
+                        <!--<button type="button" class="btn btn-primary" >Add Another Item</button>-->
+                        <!--<button type="button" class="btn btn-default">Try Me</button>-->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="inner cover"><br>
+            <div ng-repeat="bucket in main.bucketList">
+                <div>
+                    <h2 class="center results"> {{bucket.name}} </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<div>
+    <h2 class="center">Now We're Going to Prioritize your List!</h2>
+</div>
+<div>
+    <h3 class="headButton center">You can accomplish this by clicking on an item to move it up the list.</h3>
+</div>
+    <br>
+    <br>
+<div class="container-fluid">
+    <div class="prioritize well well-sm"><br>
+        <div ng-repeat="bucket in main.bucketList">
+            <div>
+                <h2 class="center" ng-click="main.Prioritize($index)"> {{ bucket.name}} </h2>
+            </div>
+        </div>
+    </div>
+</div>

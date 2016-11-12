@@ -1,0 +1,52 @@
+bucketlistEmpty = [
+  {
+    "name":"Bucket List Item One",
+    "date":"06/12/2017",
+    "task":[]
+  },
+  {
+    "name":"Bucket List Item Two",
+    "date":"06/12/2017",
+    "task":[]
+  },
+  {
+    "name":"Bucket List Item Three",
+    "date":"06/12/2017",
+    "task":[]
+  },
+  {
+    "name":"Bucket List Item Four",
+    "date":"06/12/2017",
+    "task":[]
+  },
+  {
+    "name":"Bucket List Item Five",
+    "date":"06/12/2017",
+    "task":[]
+  },
+  {
+    "name":"Bucket List Item Six",
+    "date":"06/12/2017",
+    "task":[]
+  },
+  {
+    "name":"Bucket List Item Seven",
+    "date":"06/12/2017",
+    "task":[]
+  },
+  {
+    "name":"Bucket List Item Eight",
+    "date":"06/12/2017",
+    "task":[]
+  }
+
+];
+
+
+
+
+
+
+
+
+
