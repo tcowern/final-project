@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="Buckets">
+    <head>
+        <title>The Bucket List!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/module.buckets.js"></script>
+        <script src="/js/controller.home.js"></script>
+        <script src="/js/factory.buckets.js"></script>
+        
+    </head>
+    <body ng-controller="homeController as home">
+            <h1>{{home.greeting}}</h1>
+
+            <form ng-submit="home.createBucket()">
+                <input class="form-control" ng-model="home.newBucket.name" placeholder="Bucket List Item">
+
+                <!--<input class="form-control" ng-model="home.newHero.costume" placeholder="Costume">
+
+                <input class="form-control" ng-model="home.newHero.powers" placeholder="Powers" ng-list>
+
+                <input class="form-control" ng-model="home.newHero.facialHair" type="checkbox">
+
+                <textarea class="form-control" ng-model="home.newHero.backStory" placeholder="Backstory"></textarea>-->
+
+                <input type="submit">
+            </form>
+
+        <ul>
+            <li ng-repeat="bucket in home.bucketList track by $index">
+                {{bucket.name}}
+            </li>
+
+        </ul>
+
+        <!--{{home.bucket.name}}-->
+
+    </body>
+</html>
