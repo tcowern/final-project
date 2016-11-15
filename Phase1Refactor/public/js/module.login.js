@@ -2,6 +2,8 @@ angular.module('module.login',[])
     .controller('controller.login',['$http', function($http) {
         var login = this;
 
+        // login.newBucket = {};
+
         login.submit = function() {
             console.log(login);
 

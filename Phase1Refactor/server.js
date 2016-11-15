@@ -22,10 +22,11 @@ var PORT = process.env.PORT || 3000
 var app = express();
 
 // Middleware
-app.use(express.static('public'));
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
 app.use(sessions);
+app.use(express.static('public'));
 
 // Routes
 Routes(app);

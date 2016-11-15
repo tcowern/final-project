@@ -8,7 +8,7 @@ function bucketFactory ($http) {
     return {
 
         createBucket : function(bucketData){
-            return $http.post('/api/buckets', bucketData)
+            return $http.post('/register', bucketData)
         },
 
         getBucket : function(bucketID){

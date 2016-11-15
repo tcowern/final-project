@@ -1,11 +1,11 @@
-var User = require('../models/user'),
+var Bucket = require('../models/bucketsModel'),
     bcrypt = require('bcryptjs');
 
 module.exports = {
     login: ( req, res ) => { // POST login
         console.info('LOGIN::POST::PAYLOAD::', req.body);
 
-        User.findOne({
+        Bucket.findOne({
             email: req.body.email
         }, (err, user) => {
             if( err ) { // this will trigger the error .then callback on the frontend
@@ -40,24 +40,31 @@ module.exports = {
         res.redirect('/login.html');
     },
     register: ( req, res ) => {
-        console.log(req.body);
+        console.log("You hit registration");
+        //console.log(req.body);
 
-        var newUser = new User(req.body);
+
+        var newBucket = new Bucket(req.body);
 
         // when this function fires, it is going to hit the pre save middleware
-        newUser.save((err, user)=>{
+            newBucket.save((err, user)=>{
             if(err){
                 return res.send(err);
             }
-            res.send(user);
+            // req.session.userId = user._id;
+            // res.redirect('/html/index.html');
+
+             req.session.uid = user._id; // set the user in the session!
+                res.send("Successfully registered!"); // send a success message
         });
     },
     middlewares: {
         session: (req, res, next) => { // this will be the middleware that checks for a loggedin user
-            // console.log(session);
+            console.log("Inside session");
             if( req.session.userId ) {
                 next();
             } else {
+                // res.redirect('Blue');
                 res.redirect('/html/login.html');
                 console.log("Should redirect to login")
             }

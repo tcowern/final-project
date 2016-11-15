@@ -2,13 +2,14 @@ var Bucket = require('../models/bucketsModel'); // db.buckets
 
 function create (req, res) {
 
-    var newDoc = new Bucket(req.body);
-    
-    newDoc.save((err, doc)=>{
+    // var newDoc = new Bucket(req.body);
+    console.log(req.body);
+    Bucket.save((err, doc)=>{
         if(err){
             return res.send(err);
         }
-        res.send(doc);
+        res.redirect('/index');
+        console.log(doc);
     });
 }
 
@@ -43,7 +44,7 @@ function get (req, res) {
 
 module.exports = {
     create : create,
-    get    : get,
+    get    : get
 }
 
 // module.exports = {

@@ -12,12 +12,17 @@ function homeController (bucketFactory){
 
     // heroesFactory.createHero().then
 
+
     home.createBucket = function(){
         bucketFactory.createBucket(home.newBucket)
             .then(function(returnData){
                 console.log('Response from server : ', returnData)
                 home.newBucket = {}; // reset the form
                 home.getBucket();
+
+                window.location.href = "/";
+            }).catch(function(err){
+                console.log("create bucket error", err);
             });
     }
 
@@ -34,6 +39,9 @@ function homeController (bucketFactory){
                 }
             })
     }
-    home.getBucket(); // get many
+
+
+    
+    //home.getBucket(); // get many
     // home.getHero("581a2941fba8172b747af12f"); // get one
 }

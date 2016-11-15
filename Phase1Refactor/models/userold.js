@@ -24,7 +24,7 @@ var mongoose = require('mongoose'),
 
 
 
-UserSchema.pre('save', function(next) {
+bucketSchema.pre('save', function(next) {
     var user = this; // new User(req.body);
 
     // user.email = user.email.toLowerCase();
@@ -55,4 +55,4 @@ UserSchema.pre('save', function(next) {
     });
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Bucket', bucketSchema);
