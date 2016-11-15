@@ -12,16 +12,8 @@
     <body ng-controller="homeController as home">
             <h1>{{home.greeting}}</h1>
 
-            <form ng-submit="home.createBucket()">
-                <!--<input class="form-control" ng-model="home.newBucket.name" placeholder="Bucket List Item">-->
-
-                <!--<input class="form-control" ng-model="home.newHero.costume" placeholder="Costume">
-
-                <input class="form-control" ng-model="home.newHero.powers" placeholder="Powers" ng-list>
-
-                <input class="form-control" ng-model="home.newHero.facialHair" type="checkbox">
-
-                <textarea class="form-control" ng-model="home.newHero.backStory" placeholder="Backstory"></textarea>-->
+            <form ng-submit="home.addBucket()">
+                <input class="form-control" ng-model="home.BucketItem.buckets" placeholder="Bucket List Item">
 
                 <input type="submit">
             </form>
@@ -32,8 +24,6 @@
             </li>
 
         </ul>
-
-        <!--{{home.bucket.name}}-->
 
     </body>
 </html>

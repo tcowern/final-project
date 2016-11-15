@@ -18,6 +18,8 @@ module.exports = (app) =>{
 
     app.post('/register', Auth.register);
 
+    
+
 
 
     
@@ -25,6 +27,7 @@ module.exports = (app) =>{
     app.post('/api/buckets', Bucket.create);
     app.get('/api/buckets', Bucket.get);
     app.get('/api/buckets/:id', Bucket.get);
+    app.put('/api/buckets', Bucket.addBucket);
     
     
     //     app.get('/', (req, res)=>{

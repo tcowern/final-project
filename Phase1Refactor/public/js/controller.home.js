@@ -40,7 +40,15 @@ function homeController (bucketFactory){
             })
     }
 
-
+    home.addBucket = function() {
+        console.log(home.BucketItem);
+        bucketFactory.addBucket(home.BucketItem)
+            .then(function(returnData){
+                console.log("addBucket response from server: ", returnData);
+            }).catch(function(err){
+                console.log("addBucket error: ", err);
+            });
+    }
     
     //home.getBucket(); // get many
     // home.getHero("581a2941fba8172b747af12f"); // get one

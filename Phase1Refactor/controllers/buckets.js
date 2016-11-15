@@ -42,9 +42,30 @@ function get (req, res) {
     }
 }
 
+function addBucket (req, res) {
+    
+    console.log(req.body);
+    var user = req.session.userId;
+    console.log("user: ", user);
+    var bvar = req.body.buckets;
+        // 'description': req.body.description,
+    
+    // var newBarrel = new barrel(aryansvar);
+    console.log("Edit Input haha: ", bvar);
+    Bucket.findOneAndUpdate({'_id': user}, {$push:{buckets:bvar}}, {new: true}, (err, doc) => {
+        if (err) {
+            return res.send(err);
+        }
+        console.log(doc);
+        res.send(doc);
+    });
+
+}
+
 module.exports = {
     create : create,
-    get    : get
+    get    : get,
+    addBucket    : addBucket
 }
 
 // module.exports = {

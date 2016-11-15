@@ -14,6 +14,10 @@ function bucketFactory ($http) {
         getBucket : function(bucketID){
             bucketID = bucketID ? '/' + bucketID : ''
             return $http.get('/api/buckets' + bucketID)
+        },
+
+        addBucket : function(bucketItem) {
+            return $http.put('/api/buckets', bucketItem);
         }
 
     }
