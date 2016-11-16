@@ -12,18 +12,26 @@
     <body ng-controller="homeController as home">
             <h1>{{home.greeting}}</h1>
 
-            <form ng-submit="home.addBucket()">
-                <input class="form-control" ng-model="home.BucketItem.bucketname" placeholder="Bucket List Item">
+            <!--<form ng-submit="home.addBucket()">
+                <input class="form-control" ng-model="home.BucketItem.buckets" placeholder="Bucket List Item">
 
                 <input type="submit">
-            </form>
+            </form>-->
 
-        <ul>
+        <!--<ul>
             <li ng-repeat="buckets in home.bucketList">
-                {{buckets.bucketname}}
+                {{buckets.bucket}}
             </li>
 
-        </ul>
-
+        </ul>-->
+<div class="container-fluid">
+    <div class="prioritize well well-sm"><br>
+        <div ng-repeat="buckets in home.bucketList">
+            <div>
+                <h2 class="center" ng-click="home.Prioritize($index)"> {{ buckets.bucket}} </h2>
+            </div>
+        </div>
+    </div>
+</div>
     </body>
 </html>

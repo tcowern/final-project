@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcryptjs'),
     SALT_INDEX = 10,    // the larger this value is, the stronger the encryption,
                         // but the longer it will take to compare hashes
-    UserSchema = new mongoose.Schema({
+    userSchema = new mongoose.Schema({
         username: {
             type: String,
             unique: true,
@@ -24,7 +24,7 @@ var mongoose = require('mongoose'),
 
 
 
-bucketSchema.pre('save', function(next) {
+userSchema.pre('save', function(next) {
     var user = this; // new User(req.body);
 
     // user.email = user.email.toLowerCase();
@@ -55,4 +55,4 @@ bucketSchema.pre('save', function(next) {
     });
 });
 
-module.exports = mongoose.model('Bucket', bucketSchema);
+module.exports = mongoose.model('User', userSchema);

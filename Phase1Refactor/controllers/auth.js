@@ -1,11 +1,11 @@
-var Bucket = require('../models/bucketsModel'),
+var User = require('../models/userModel'),
     bcrypt = require('bcryptjs');
 
 module.exports = {
     login: ( req, res ) => { // POST login
         console.info('LOGIN::POST::PAYLOAD::', req.body);
 
-        Bucket.findOne({
+        User.findOne({
             email: req.body.email
         }, (err, user) => {
             if( err ) { // this will trigger the error .then callback on the frontend
@@ -44,10 +44,10 @@ module.exports = {
         //console.log(req.body);
 
 
-        var newBucket = new Bucket(req.body);
+        var newUser = new User(req.body);
 
         // when this function fires, it is going to hit the pre save middleware
-            newBucket.save((err, user)=>{
+            newUser.save((err, user)=>{
             if(err){
                 return res.send(err);
             }

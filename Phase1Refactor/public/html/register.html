@@ -12,27 +12,23 @@
     <body ng-controller="homeController as home">
             <h1>{{home.greeting}}</h1>
 
-            <form ng-submit="home.createBucket()">
-                <input class="form-control" ng-model="home.newBucket.username" placeholder="Create a User Name">
+            <form ng-submit="home.createUser()">
+                <input class="form-control" ng-model="home.newUser.username" placeholder="Create a User Name">
 
-                <input class="form-control" ng-model="home.newBucket.email" placeholder="Enter Email">
+                <input class="form-control" ng-model="home.newUser.email" placeholder="Enter Email">
 
-                <input class="form-control" ng-model="home.newBucket.firstname" placeholder="Enter First Name" ng-list>
+                <input class="form-control" ng-model="home.newUser.firstname" placeholder="Enter First Name" ng-list>
 
-                <input class="form-control" ng-model="home.newBucket.lastname" placeholder="Enter Last Name" ng-list>
+                <input class="form-control" ng-model="home.newUser.lastname" placeholder="Enter Last Name" ng-list>
 
-                <input class="form-control" ng-model="home.newBucket.birthdate" placeholder="Enter Birth Date in mm-dd-yyyy format" ng-list>
+                <input class="form-control" ng-model="home.newUser.birthdate" placeholder="Enter Birth Date in mm-dd-yyyy format" ng-list>
 
-                <Select ng-model="home.newBucket.sex">
+                <Select ng-model="home.newUser.sex">
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                 </Select>
 
-                <input class="form-control" ng-model="home.newBucket.password" placeholder="Create Password" ng-list>
-
-                <!--<input class="form-control" ng-model="home.newHero.powers" placeholder="Re-enter Password" ng-list>-->
-
-                <!--<textarea class="form-control" ng-model="home.newHero.backStory" placeholder="Backstory"></textarea>-->
+                <input class="form-control" ng-model="home.newUser.password" placeholder="Create Password" ng-list>
 
                 <input type="submit">
             </form>

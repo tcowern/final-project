@@ -10,9 +10,9 @@ function bucketFactory ($http) {
 
     return {
 
-        createBucket : function(bucketData){
-            return $http.post('/register', bucketData)
-        },
+        // createBucket : function(bucketData){
+        //     return $http.post('/register', bucketData)
+        // },
 
         getBucket : function(bucketID){
             console.log("Hit the getBucket in factory");
@@ -21,8 +21,12 @@ function bucketFactory ($http) {
         },
 
         addBucket : function(bucketItem) {
-            return $http.put('/api/buckets', bucketItem);
-        }
+            return $http.post('/api/buckets', bucketItem);
+        },
+
+        createUser : function(userData){
+            return $http.post('/register', userData)
+        },
 
     }
 }
