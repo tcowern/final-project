@@ -1,9 +1,12 @@
 angular.module('Buckets')
     .factory('bucketFactory', bucketFactory);
 
+ 
+
 bucketFactory.$inject = ['$http'];
 
 function bucketFactory ($http) {
+
 
     return {
 
@@ -12,6 +15,7 @@ function bucketFactory ($http) {
         },
 
         getBucket : function(bucketID){
+            console.log("Hit the getBucket in factory");
             bucketID = bucketID ? '/' + bucketID : ''
             return $http.get('/api/buckets' + bucketID)
         },

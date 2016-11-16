@@ -58,7 +58,7 @@ function addBucket (req, res) {
         if (err) {
             return res.send(err);
         }
-        console.log(doc.buckets[3].tasks);
+        // console.log(doc.buckets[3].tasks);
         res.send(doc);
     });
 
@@ -69,14 +69,19 @@ function addBucket (req, res) {
     //     console.log(doc.buckets[3].tasks);
     //     res.send(doc);
     // });
-
-
 }
+
+function getUserID(req, res) {
+    return res.send(req.session.userId);
+}
+
+
 
 module.exports = {
     create : create,
     get    : get,
-    addBucket    : addBucket
+    addBucket    : addBucket,
+    getUserID : getUserID
 }
 
 // module.exports = {

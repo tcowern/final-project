@@ -3,6 +3,7 @@ angular.module('module.login',[])
         var login = this;
 
         // login.newBucket = {};
+        login.bucketFactory
 
         login.submit = function() {
             console.log(login);
@@ -15,7 +16,8 @@ angular.module('module.login',[])
                     password: login.password
                 }
             }).then(function(res) {
-                console.info(res.data);
+                console.info("login response: ",res.data);
+               
                 location.href = '/';
             }, function(err) {
                 // DO NOT FORGET!!!! an error callback

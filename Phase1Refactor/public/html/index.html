@@ -19,8 +19,8 @@
             </form>
 
         <ul>
-            <li ng-repeat="bucket in home.bucketList track by $index">
-                {{bucket.name}}
+            <li ng-repeat="buckets in home.bucketList">
+                {{buckets.bucket}}
             </li>
 
         </ul>

@@ -27,7 +27,7 @@ module.exports = {
                         res.status(403).json({ message: 'Invalid username or password' });
                     } else {
                         req.session.userId = user._id;
-                        res.send({ message: 'Login success!' });
+                        res.send({ message: 'Login success!', userId : req.session.userId });
                         // res.redirect('/');
                     }
                 })

@@ -20,7 +20,7 @@ module.exports = (app) =>{
 
     
 
-
+    app.get('/api/userId', Bucket.getUserID);
 
     
     
