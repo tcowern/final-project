@@ -27,8 +27,9 @@ module.exports = {
                         res.status(403).json({ message: 'Invalid username or password' });
                     } else {
                         req.session.userId = user._id;
+                        // res.redirect('/index.html');
                         res.send({ message: 'Login success!', userId : req.session.userId });
-                        // res.redirect('/');
+                        // res.redirect('/index.html');
                     }
                 })
             }
@@ -37,7 +38,7 @@ module.exports = {
     },
     logout: (req, res ) => {
         req.session.reset();
-        res.redirect('/login.html');
+        res.redirect('/html/login.html');
     },
     register: ( req, res ) => {
         console.log("You hit registration");

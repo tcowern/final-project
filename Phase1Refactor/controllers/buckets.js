@@ -1,4 +1,5 @@
-var Bucket = require('../models/bucketsModel'); // db.buckets
+var Bucket = require('../models/bucketsModel'),
+Task = require('../models/tasksModel');// db.buckets
 
 // function create (req, res) {
 
@@ -32,12 +33,12 @@ function get (req, res) {
     }
     // get Many
     else{
-        Bucket.find({userid: req.session.userId}, (err, documents)=>{
+        Bucket.find({userid: req.session.userId}, (err, document)=>{
             // res.send(err || documents)
             if(err){
                 return res.send(err);
             }
-            res.send(documents);
+            res.send(document);
         });
     }
 }
@@ -65,6 +66,32 @@ function addBucket (req, res) {
 
 }
 
+// function addTask (req, res) {
+    
+//     console.log("addTask: ", req.body);
+//     // var user = req.session.userId;
+//     var bucket = "";
+//     console.log("bucketname: ",req.body);
+//     console.log("user: ", user);
+//     var bvar = req.body;
+//     // bvar.userid = user;
+    
+   
+//     console.log("Edit Task: ", bvar);
+//     var newTask = new Task(req.body);
+//     console.log("newTask: ",newTask);
+//     newTask.save((err, doc)=>{
+//         if(err){
+//             return res.send(err);
+//         }
+//             res.send(doc);
+//             // res.redirect('/index');
+//             console.log(doc);
+//     });
+
+// }
+
+
 function getUserID(req, res) {
     return res.send(req.session.userId);
 }
@@ -72,7 +99,7 @@ function getUserID(req, res) {
 
 
 module.exports = {
-    // create : create,
+    // addTask : addTask,
     get    : get,
     addBucket    : addBucket,
     getUserID : getUserID

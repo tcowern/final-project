@@ -1,55 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="Buckets">
+    <head>
+        <title>Add Tasks!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/module.buckets.js"></script>
+        <script src="/js/controller.home.js"></script>
+        <script src="/js/factory.buckets.js"></script>
+        
+    </head>
+    <body ng-controller="homeController as home">
+		<a href="/logout">Logout</a>
 <div>
 	<h2 class="center">Next we're going to add tasks to your "Bucket List" items.</h2>
 </div>
 <div>
 	<h3 class="headButton center"> Select the "Bucket List" item from the dropdown below and enter a task in the task textbox.</h3>
-</div>
-<div class="dropdown wide">
-	<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select Your Bucket List Item here
-    
-  </button>
-	<ul class="dropdown-menu" aria-labelledby="dLabel">
-		<h2 class="dropdown results" ng-click="home.selectBucket($index)" ng-model="mySearch" ng-repeat="bucket in main.bucketList track by $index">
-		{{bucket.name}} </h2>
-	</ul>
-<!--</div>
-<div id="err1">
-	<p name="myBucketHeading" hidden></p>
-	<p name="index" hidden></p><input name="search" hidden>
 
-	<h2>
-		<p class="warning-text center" display="none">{{main.addTaskErrMessage}}</p>
-	</h2>
-</div>
-<div id="err2">
-	<h2>
-		<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Warning!</strong> Please choose a "Bucket List" item before adding a task!.
-</div>
-	</h2>
-</div>-->
+
+<select value="home.selectedName._id" ng-model="home.selectedName" ng-options="x.bucketname for x in home.bucketList" ng-change="home.test()">
+</select>
+<br>
+<br>
 
 <div class="center">
-	Enter your task: <input type="text" id="task" value="" placeholder="Enter a Task Here" onchange="main.choiceEmpty()">
-	<button type="submit" ng-click="main.addTask()">Submit</button>
+	Enter your task: <input type="text" id="task" value="" ng-model="home.Task.taskname" placeholder="Enter a Task Here">
+	<button type="submit" ng-click="home.addTask()">Submit</button>
 </div>
 
 <section>
 	<div class="container-fluid">
 		<div><br>
-			<div class="tasklist well well-sm" ng-repeat="bucket in main.bucketList | filter:mySearch">
+			<div class="tasklist well well-sm" ng-repeat="tasks in home.taskList">
 				<div>
 					<ul>
 						<ul>
-							<h2> {{bucket.$index}} {{bucket.name}} </h2>
+							<h2> {{tasks.taskname}} </h2>
 						</ul>
 						<ul>
-							<li class=" tasks " ng-repeat="item in bucket.task track by $index "> {{ item }}</li>
+							<!--<li class=" tasks " ng-repeat="item in bucket.task "> {{ item }}</li>-->
 						</ul>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
+      </body>
+</html>

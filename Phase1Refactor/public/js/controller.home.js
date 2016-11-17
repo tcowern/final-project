@@ -8,10 +8,12 @@ function homeController (bucketFactory, $http){
     home.newbucket = {};
     home.bucket = {};
     home.bucketList = [];
+    home.taskList = [];
     home.addbucket = {};
     home.BucketItem = {};
     home.greeting = 'Welcome to the bucket list!';
     var user = "";
+    var task = "";
 
     // heroesFactory.createHero().then
 
@@ -86,59 +88,76 @@ function homeController (bucketFactory, $http){
             });
     }
     
-    home.getBucket(); // get many
-    
-    $http.get('/api/userID')
-        .then(function(res){
-            console.log("getUserID api :",res);
-             home.getBucket(res.data); // get one
-        })
-        .catch(function(err){
-            console.log("getUserID error :", err);
-        });
+    home.addTask = function() {
+        console.log("Hit addTask", home.Task);
+        console.log("ID: ",home.selectedName._id)
+        // task = home.selectedName._id;
+        //     home.Task = {
+        //             bucketid: task
+        //         };
+        home.Task.bucketid = home.selectedName._id;
+                console.log("home.task: ", home.Task);
+        bucketFactory.addTask(home.Task)
+            .then(function(returnData){
 
-    // home.Prioritize = function($index) {
-    //     // console.log("ng-click works!");
+                console.log("addTask response from server: ", returnData);
+                // home.getBucket(); // get many
+                home.Task.taskname = '';
+            }).catch(function(err){
+                console.log("addBucket error: ", err);
+            });
 
-    //     console.log("index: ", $index);
+            home.test();
+    }
 
-    //     if ($index === 0) {
+    // home.getTask = function(){
+    //     console.log("Hit the GET Task function");
+    //     bucketFactory.getTask()
+    //         .then(function(returnData){
+    //             console.log("tasks",returnData.data);
+    //             if(returnData.data !== undefined){
+    //                 // if array (has length), store in bucketList
+    //                 home.taskList = returnData.data;
+    //                 console.log("Tasklist", home.taskList)
+    //             }
+    //             else{
+    //                 // if not, store in bucket
+    //                 // home.taskList = [];
+    //             }
+    //         })
 
-    //     } else {
-
-    //         // copy the Bucket List
-    //         var bucketlist = angular.copy(home.bucketList);
-
-    //         // switch the values of the clicked item and the one above it
-    //         var myIndex = "";
-    //         myIndex = bucketlist[$index + 1];
-    //         console.log("bucketlist item: ",myIndex);
-    //         var oldName = bucketlist[$index].buckets;
-    //         var newName = bucketlist[$index - 1].buckets;
-    //         // var oldDate = bucketlist[$index].date;
-    //         // var newDate = bucketlist[$index - 1].date;
-    //         // var oldTask = bucketlist[$index].task;
-    //         // var newTask = bucketlist[$index - 1].task;
-    //         bucketlist[$index - 1].buckets = oldName;
-    //         bucketlist[$index].buckets = newName;
-    //         // bucketlist[$index - 1].date = oldDate;
-    //         // bucketlist[$index].date = newDate;
-    //         // bucketlist[$index - 1].task = oldTask;
-    //         // bucketlist[$index].task = newTask;
-
-    //         // Strip $$hashKey for storage
-    //         // bucketlist.forEach(function(bucket) {
-    //         //     delete bucket.$$hashKey;
-    //         // });
-
-    //         // update main Bucket List to display new list order
-    //        home.bucketList = angular.copy(bucketlist);
-
-    //         // Update localStorage
-    //         // window.localStorage.setItem('bucketlist', JSON.stringify(bucketlist));
-
-    //     }
+    //         // home.getTask();
     // }
+
+    // home.getBucket(); // get many
+
+    // home.getTask();
+    
+    // $http.get('/api/userID')
+    //     .then(function(res){
+    //         console.log("getUserID api :",res);
+    //          home.getBucket(res.data); // get one
+    //     })
+    //     .catch(function(err){
+    //         console.log("getUserID error :", err);
+    //     });
+    
+    home.test = function() {
+        console.log("Test worked!")
+
+        var selected = home.selectedName._id;
+        console.log("selected: ", selected);
+
+        TaskID = selected;
+        bucketFactory.getTask(TaskID)
+            .then(function(res){
+                console.log("Get task with BL id :",res);
+                home.taskList = res.data;
+            })
+            .catch(function(err){
+                console.log("get Task error :", err);
+            });
+    }    
 
    
 }

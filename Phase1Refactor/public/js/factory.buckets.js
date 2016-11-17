@@ -25,7 +25,17 @@ function bucketFactory ($http) {
         },
 
         createUser : function(userData){
-            return $http.post('/register', userData)
+            return $http.post('/register', userData);
+        },
+
+        addTask : function(taskItem) {
+            return $http.post('/api/task', taskItem);
+        },
+
+        getTask : function(bucketid){
+            console.log("Hit the getTask in factory", bucketid);
+            // bucketid = bucketid ? '/' + bucketid : ''
+            return $http.get('/api/task/' + bucketid)
         },
 
     }
