@@ -25,13 +25,14 @@ module.exports = (app) =>{
 
     
     
-    // app.post('/api/buckets', Bucket.create);
+    app.put('/api/bucketedit', Bucket.put)
     app.get('/api/buckets', Bucket.get);
     app.get('/api/buckets/:id', Bucket.get);
     app.post('/api/buckets', Bucket.addBucket);
     app.post('/api/task', Task.addTask);
     app.get('/api/task', Task.get);
     app.get('/api/task/:id', Task.get);
+    
     
     
     //     app.get('/', (req, res)=>{

@@ -1,18 +1,19 @@
-var Bucket = require('../models/bucketsModel'),
-Task = require('../models/tasksModel');// db.buckets
+var Bucket = require('../models/bucketsModel');
+// Task = require('../models/tasksModel');// db.buckets
 
-// function create (req, res) {
+function put (req, res) {
+    console.log("req.body",req.body);
+        Bucket.findByIdAndUpdate(req.body.bucketid, {bucketdate: req.body.bucketdate}, {new: true}, (err, document)=>{
+            // res.send(err || documents)
+            if(err){
+                res.send(err);
+            } else {
+            console.log("DOCUMENT from PUT",document);
+            res.send(document);
+            }
+    });
 
-//     // var newDoc = new Bucket(req.body);
-//     console.log(req.body);
-//     Bucket.save((err, doc)=>{
-//         if(err){
-//             return res.send(err);
-//         }
-//         res.redirect('/index');
-//         console.log(doc);
-//     });
-// }
+}
 
 function get (req, res) {
     // get One
@@ -99,7 +100,7 @@ function getUserID(req, res) {
 
 
 module.exports = {
-    // addTask : addTask,
+    put : put,
     get    : get,
     addBucket    : addBucket,
     getUserID : getUserID

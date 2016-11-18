@@ -65,6 +65,7 @@ function homeController (bucketFactory, $http){
                     // if array (has length), store in bucketList
                     home.bucketList = returnData.data;
                     console.log("Bucekys", home.bucketList)
+                    // return home.bucketList;
                 }
                 else{
                     // if not, store in bucket
@@ -110,21 +111,23 @@ function homeController (bucketFactory, $http){
             home.test();
     }
 
-    // home.getTask = function(){
-    //     console.log("Hit the GET Task function");
-    //     bucketFactory.getTask()
-    //         .then(function(returnData){
-    //             console.log("tasks",returnData.data);
-    //             if(returnData.data !== undefined){
-    //                 // if array (has length), store in bucketList
-    //                 home.taskList = returnData.data;
-    //                 console.log("Tasklist", home.taskList)
-    //             }
-    //             else{
-    //                 // if not, store in bucket
-    //                 // home.taskList = [];
-    //             }
-    //         })
+    home.dateBucket = function (bucketId, bucketDate) {
+        
+        console.log("BucketID: ", bucketId);
+        console.log("BucketDate: ", bucketDate);
+        var editData = {};
+        bucketFactory.dateBucket(bucketId, bucketDate)
+
+            .then(function(returnData){
+
+                console.log("date Bucket response from server: ", returnData);
+                // home.getBucket(); // get many
+                // home.Task.taskname = '';
+            }).catch(function(err){
+                console.log("dateBucket error: ", err);
+            });
+
+    }
 
     //         // home.getTask();
     // }

@@ -38,5 +38,14 @@ function bucketFactory ($http) {
             return $http.get('/api/task/' + bucketid)
         },
 
+        dateBucket : function(dateItem, dateDate) {
+            // dateItem = dateItem ? '/' + dateItem : ''
+            var data = {
+                bucketid: dateItem,
+                bucketdate: "01/01/2018"
+            };
+            return $http.put('/api/bucketedit/', data);
+        }
+
     }
 }

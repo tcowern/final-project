@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="Buckets">
+    <head>
+        <title>Add Dates!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/module.buckets.js"></script>
+        <script src="/js/controller.home.js"></script>
+        <script src="/js/factory.buckets.js"></script>
+        
+    </head>
+    <body ng-controller="homeController as home">
+		<a href="/logout">Logout</a>
+<div>
+	<h2 class="center">Next we're going to add dates to your "Bucket List" items.</h2>
+</div>
+<!--<div>
+	<h3 class="headButton center"> Select the "Bucket List" item from the dropdown below and enter a task in the task textbox.</h3>
+
+
+<select value="home.selectedName._id" ng-model="home.selectedName" ng-options="x.bucketname for x in home.bucketList" ng-change="home.test()">
+</select>
+<br>
+<br>-->
+
+<!--<div class="center">
+	Enter your task: <input type="text" id="task" value="" ng-model="home.Task.taskname" placeholder="Enter a Task Here">
+	<button type="submit" ng-click="home.addTask()">Submit</button>
+</div>-->
+
+<section>
+	<div class="container-fluid">
+		<div><br>
+			<div class="tasklist well well-sm" ng-repeat="buckets in home.bucketList">
+				<div>
+					<ul>
+						<ul>
+							<h2> {{buckets.bucketname}} date:<a ng-click="home.dateBucket(buckets._id, buckets.bucketdate)" href="#">{{buckets.bucketdate}}</a>{{buckets._id}}</h2>
+						</ul>
+						<ul>
+							<!--<li class=" tasks " ng-repeat="item in bucket.task "> {{ item }}</li>-->
+						</ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+      </body>
+</html>
