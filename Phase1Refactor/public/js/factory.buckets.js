@@ -42,7 +42,7 @@ function bucketFactory ($http) {
             // dateItem = dateItem ? '/' + dateItem : ''
             var data = {
                 bucketid: dateItem,
-                bucketdate: "01/01/2018"
+                bucketdate: dateDate
             };
             return $http.put('/api/bucketedit/', data);
         }

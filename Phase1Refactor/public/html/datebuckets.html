@@ -2,8 +2,12 @@
 <html ng-app="Buckets">
     <head>
         <title>Add Dates!</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
         <script src="/js/module.buckets.js"></script>
         <script src="/js/controller.home.js"></script>
         <script src="/js/factory.buckets.js"></script>
@@ -35,7 +39,7 @@
 				<div>
 					<ul>
 						<ul>
-							<h2> {{buckets.bucketname}} date:<a ng-click="home.dateBucket(buckets._id, buckets.bucketdate)" href="#">{{buckets.bucketdate}}</a>{{buckets._id}}</h2>
+							<h2> {{buckets.bucketname}} Due Date:  <a onaftersave="home.dateBucket(buckets._id, buckets.bucketdate)" editable-text="buckets.bucketdate"  e-datepicker-popup="dd-MMMM-yyyy" href="#">{{ buckets.bucketdate }}</a></h2>
 						</ul>
 						<ul>
 							<!--<li class=" tasks " ng-repeat="item in bucket.task "> {{ item }}</li>-->

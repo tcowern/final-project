@@ -37,7 +37,7 @@ module.exports = {
         })
     },
     logout: (req, res ) => {
-        req.session.reset();
+        req.session.destroy();
         res.redirect('/html/login.html');
     },
     register: ( req, res ) => {

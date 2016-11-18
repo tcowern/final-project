@@ -1,5 +1,7 @@
-angular.module('Buckets')
+angular.module('Buckets', ["xeditable"])
     .controller('homeController', homeController);
+    
+    
 
 homeController.$inject = ['bucketFactory', "$http"];
 
@@ -12,23 +14,30 @@ function homeController (bucketFactory, $http){
     home.addbucket = {};
     home.BucketItem = {};
     home.greeting = 'Welcome to the bucket list!';
+    home.user = {complete: false};  
     var user = "";
     var task = "";
 
     // heroesFactory.createHero().then
 
+    // home.getTask();
+
+
+
      $http.get('/api/userID')
         .then(function(res){
-            // console.log("getUserID api :",res);
+            console.log("getUserID api :",res);
              home.getBucket(res.data); // get one
             //  home.BucketItem = {};
             user = res.data;
+            console.log("Loser: ",user);
             
             // console.log("Get attempt: ", user);
         })
         .catch(function(err){
             console.log("getUserID error :", err);
         });
+
 
     home.createBucket = function(){
         bucketFactory.createBucket(home.newBucket)
@@ -71,7 +80,8 @@ function homeController (bucketFactory, $http){
                     // if not, store in bucket
                     home.bucketList = [];
                 }
-            })
+            });
+           
     }
 
     home.addBucket = function() {
@@ -129,21 +139,30 @@ function homeController (bucketFactory, $http){
 
     }
 
-    //         // home.getTask();
+            
     // }
 
     // home.getBucket(); // get many
 
-    // home.getTask();
     
-    // $http.get('/api/userID')
-    //     .then(function(res){
-    //         console.log("getUserID api :",res);
-    //          home.getBucket(res.data); // get one
-    //     })
-    //     .catch(function(err){
-    //         console.log("getUserID error :", err);
-    //     });
+    home.getTask = function(){
+        console.log("Hit the get task function");
+        bucketFactory.getTask()
+            .then(function(returnData){
+                console.log("Tasks",returnData.data);
+                if(returnData.data !== undefined){
+                    // if array (has length), store in bucketList
+                    home.taskList = returnData.data;
+                    console.log("Taskies", home.taskList)
+                    // return home.bucketList;
+                }
+                else{
+                    // if not, store in bucket
+                    home.taskList = [];
+                }
+            });
+           
+    }
     
     home.test = function() {
         console.log("Test worked!")
@@ -163,4 +182,12 @@ function homeController (bucketFactory, $http){
     }    
 
    
+
 }
+
+angular.module('Buckets')
+    .run(function(editableOptions) {
+        editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});
+
+
