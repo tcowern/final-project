@@ -18,11 +18,6 @@ function homeController (bucketFactory, $http){
     var user = "";
     var task = "";
 
-    // heroesFactory.createHero().then
-
-    // home.getTask();
-
-
 
      $http.get('/api/userID')
         .then(function(res){
@@ -102,10 +97,7 @@ function homeController (bucketFactory, $http){
     home.addTask = function() {
         console.log("Hit addTask", home.Task);
         console.log("ID: ",home.selectedName._id)
-        // task = home.selectedName._id;
-        //     home.Task = {
-        //             bucketid: task
-        //         };
+
         home.Task.bucketid = home.selectedName._id;
                 console.log("home.task: ", home.Task);
         bucketFactory.addTask(home.Task)
@@ -139,15 +131,10 @@ function homeController (bucketFactory, $http){
 
     }
 
-            
-    // }
-
-    // home.getBucket(); // get many
-
-    
-    home.getTask = function(){
+    home.getAllTask = function(){
         console.log("Hit the get task function");
-        bucketFactory.getTask()
+        console.log("user in get all",user);
+        bucketFactory.getAllTasks()
             .then(function(returnData){
                 console.log("Tasks",returnData.data);
                 if(returnData.data !== undefined){
@@ -163,6 +150,8 @@ function homeController (bucketFactory, $http){
             });
            
     }
+
+    // home.getAllTask();
     
     home.test = function() {
         console.log("Test worked!")
@@ -180,8 +169,6 @@ function homeController (bucketFactory, $http){
                 console.log("get Task error :", err);
             });
     }    
-
-   
 
 }
 

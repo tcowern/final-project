@@ -13,11 +13,11 @@
         <script src="/js/factory.buckets.js"></script>
         
     </head>
-    <body ng-controller="homeController as home">
+    <body ng-controller="homeController as home" data-ng-init="home.getAllTask()">
 		<a href="/logout">Logout</a>
 <section>
 <div>
-  <h2 class="center">Below if your bucket list!</h2>
+  <h2 class="center">Below is your bucket list!</h2>
 </div>
 <div>
   <h3 class="headButton center"> You can use it to work toward accomplishisng your goals...or as digital toilet paper when the apocalypse comes...</h3>
@@ -35,11 +35,12 @@
           <div ng-repeat="buckets in home.bucketList ">
               <div>
                   <ul>
-                      <ul><h2 class="bucketprint"> {{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status <a href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">
+                      <ul><h2 class="bucketprint"> {{buckets._id}}  {{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status <a href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">
       {{ buckets.bucketcomp && "Complete" || "Incomplete!" }}
   </a></h2></ul>
-                          <aul>
-                            <li class="taskprint" ng-repeat="tasks in home.taskList"><h3> {{tasks.taskname}}</h3></li>
+                          <ul>
+                            <li class="taskprint" ng-repeat="tasks in home.taskList  | filter:buckets._id "><h3> {{tasks.bucketid}}  {{tasks.taskname}}, Status <a href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
+      {{ tasks.taskcomp && "Complete" || "Incomplete!" }}</h3></li>
                           </ul>
                         </ul>
                   </div>

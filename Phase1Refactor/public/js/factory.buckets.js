@@ -38,6 +38,12 @@ function bucketFactory ($http) {
             return $http.get('/api/task/' + bucketid)
         },
 
+        getAllTasks : function(){
+            console.log("Hit the getAllTasks in factory");
+            // bucketid = bucketid ? '/' + bucketid : ''
+            return $http.get('/api/task/')
+        },
+
         dateBucket : function(dateItem, dateDate) {
             // dateItem = dateItem ? '/' + dateItem : ''
             var data = {
