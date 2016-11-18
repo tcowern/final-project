@@ -15,6 +15,21 @@ function put (req, res) {
 
 }
 
+function bucketComp (req, res) {
+    console.log("bucketcomp req.body",req.body);
+        Bucket.findByIdAndUpdate(req.body.bucketid, {bucketcomp: req.body.bucketcomp}, {new: true}, (err, document)=>{
+            // res.send(err || documents)
+            if(err){
+                res.send(err);
+            } else {
+            console.log("DOCUMENT from bucketcomp",document);
+            res.send(document);
+            }
+    });
+
+}
+
+
 function get (req, res) {
     // get One
     if(req.params.id){
@@ -67,32 +82,6 @@ function addBucket (req, res) {
 
 }
 
-// function addTask (req, res) {
-    
-//     console.log("addTask: ", req.body);
-//     // var user = req.session.userId;
-//     var bucket = "";
-//     console.log("bucketname: ",req.body);
-//     console.log("user: ", user);
-//     var bvar = req.body;
-//     // bvar.userid = user;
-    
-   
-//     console.log("Edit Task: ", bvar);
-//     var newTask = new Task(req.body);
-//     console.log("newTask: ",newTask);
-//     newTask.save((err, doc)=>{
-//         if(err){
-//             return res.send(err);
-//         }
-//             res.send(doc);
-//             // res.redirect('/index');
-//             console.log(doc);
-//     });
-
-// }
-
-
 function getUserID(req, res) {
     return res.send(req.session.userId);
 }
@@ -103,7 +92,8 @@ module.exports = {
     put : put,
     get    : get,
     addBucket    : addBucket,
-    getUserID : getUserID
+    getUserID : getUserID,
+    bucketComp : bucketComp
 }
 
 // module.exports = {

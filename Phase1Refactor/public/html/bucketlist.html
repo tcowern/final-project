@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="Buckets">
     <head>
-        <title>Add Dates!</title>
+        <title>Your Bucketlist!</title>
         
     		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
     		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
@@ -35,11 +35,11 @@
           <div ng-repeat="buckets in home.bucketList ">
               <div>
                   <ul>
-                      <ul><h2 class="bucketprint"> {{buckets._id}}  {{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status <a href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">
+                      <ul><h2 class="bucketprint">{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">
       {{ buckets.bucketcomp && "Complete" || "Incomplete!" }}
   </a></h2></ul>
                           <ul>
-                            <li class="taskprint" ng-repeat="tasks in home.taskList  | filter:buckets._id "><h3> {{tasks.bucketid}}  {{tasks.taskname}}, Status <a href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
+                            <li class="taskprint" ng-repeat="tasks in home.taskList  | filter:buckets._id "><h3>         {{tasks.taskname}}, Status <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
       {{ tasks.taskcomp && "Complete" || "Incomplete!" }}</h3></li>
                           </ul>
                         </ul>

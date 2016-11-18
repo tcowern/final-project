@@ -24,8 +24,10 @@ module.exports = (app) =>{
     app.get('/api/userId', Bucket.getUserID);
 
     
-    
-    app.put('/api/bucketedit', Bucket.put)
+    app.put('/api/bucketcomp', Bucket.bucketComp);
+    app.put('/api/taskcomp', Task.taskComp);
+    app.put('/api/bucketedit', Bucket.put);
+
     app.get('/api/buckets', Bucket.get);
     app.get('/api/buckets/:id', Bucket.get);
     app.post('/api/buckets', Bucket.addBucket);

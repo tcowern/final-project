@@ -54,9 +54,23 @@ function get (req, res) {
     
 }
 
+function taskComp (req, res) {
+    console.log("taskcomp req.body",req.body);
+        Task.findByIdAndUpdate(req.body.taskid, {taskcomp: req.body.taskcomp}, {new: true}, (err, document)=>{
+            // res.send(err || documents)
+            if(err){
+                res.send(err);
+            } else {
+            console.log("DOCUMENT from taskcomp",document);
+            res.send(document);
+            }
+    });
+
+}
+
 module.exports = {
     addTask : addTask,
     get    : get,
-    getAll : getAll
-    // getUserID : getUserID
+    getAll : getAll,
+    taskComp : taskComp 
 }

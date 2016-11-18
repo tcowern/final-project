@@ -131,6 +131,42 @@ function homeController (bucketFactory, $http){
 
     }
 
+        home.compBucket = function (bucketId, bucketComp) {
+        
+        console.log("BucketID: ", bucketId);
+        console.log("BucketComp: ", bucketComp);
+        // var editData = {};
+        bucketFactory.compBucket(bucketId, bucketComp)
+
+            .then(function(returnData){
+
+                console.log("comp Bucket response from server: ", returnData);
+                // home.getBucket(); // get many
+                // home.Task.taskname = '';
+            }).catch(function(err){
+                console.log("dateBucket error: ", err);
+            });
+
+    }
+
+    home.compTask = function (taskId, taskComp) {
+        
+        console.log("TaskID: ", taskId);
+        console.log("TaskComp: ", taskComp);
+        
+        bucketFactory.compTask(taskId, taskComp)
+
+            .then(function(returnData){
+
+                console.log("comp Task response from server: ", returnData);
+                // home.getBucket(); // get many
+                // home.Task.taskname = '';
+            }).catch(function(err){
+                console.log("compTask error: ", err);
+            });
+
+    }
+
     home.getAllTask = function(){
         console.log("Hit the get task function");
         console.log("user in get all",user);
@@ -151,7 +187,6 @@ function homeController (bucketFactory, $http){
            
     }
 
-    // home.getAllTask();
     
     home.test = function() {
         console.log("Test worked!")

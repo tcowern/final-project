@@ -51,6 +51,24 @@ function bucketFactory ($http) {
                 bucketdate: dateDate
             };
             return $http.put('/api/bucketedit/', data);
+        },
+        
+        compBucket : function(bucketId, bucketComp) {
+            // dateItem = dateItem ? '/' + dateItem : ''
+            var data = {
+                bucketid: bucketId,
+                bucketcomp: bucketComp
+            };
+            return $http.put('/api/bucketcomp/', data);
+        },
+        
+        compTask : function(taskId, taskComp) {
+            // dateItem = dateItem ? '/' + dateItem : ''
+            var data = {
+                taskid: taskId,
+                taskcomp: taskComp
+            };
+            return $http.put('/api/taskcomp/', data);
         }
 
     }
