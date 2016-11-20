@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
     buckets : {type : Array, default : []},
     bucketcomp : {type : Boolean, default : false},
     bucketcompdate: {type: String, default: ""},
+    topgroup: {type: Boolean, default: false}
 
 });
 

@@ -31,6 +31,11 @@ app.use(express.static('public'));
 // Routes
 Routes(app);
 
+    // app.get('/datebuckets', function (req, res) {
+    //  res.sendFile('datebuckets');
+    // });
+
+
 app.listen(3000, ()=>{
     console.log('Server is running on: ', PORT);
 });

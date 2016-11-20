@@ -3,11 +3,13 @@
     <head>
         <title>Your Bucketlist!</title>
         
-    		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-    		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
+        <script type="text/javascript" src="dist/ng-sortable.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="../css/cover.css">
         <script src="/js/module.buckets.js"></script>
         <script src="/js/controller.home.js"></script>
         <script src="/js/factory.buckets.js"></script>
@@ -32,14 +34,14 @@
 <section  class="backgroundbucketlist">
     <div class="container-fluid">
       <div><br>
-          <div ng-repeat="buckets in home.bucketList ">
-              <div>
-                  <ul>
-                      <ul><h2 class="bucketprint">{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">
+          <div >
+              <div ng-repeat="buckets in home.bucketList">
+                  <ul> 
+                      <ul><li><h2 class="bucketprint">{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">
       {{ buckets.bucketcomp && "Complete" || "Incomplete!" }}
-  </a></h2></ul>
+  </a></li></h2></ul></ul>
                           <ul>
-                            <li class="taskprint" ng-repeat="tasks in home.taskList  | filter:buckets._id "><h3>         {{tasks.taskname}}, Status <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
+                                <li class="taskprint" ng-repeat="tasks in home.taskList  | filter:buckets._id "><h3>         {{tasks.taskname}}, Status <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
       {{ tasks.taskcomp && "Complete" || "Incomplete!" }}</h3></li>
                           </ul>
                         </ul>

@@ -6,15 +6,69 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
+        <script type="text/javascript" src="dist/ng-sortable.min.js"></script>
+        <link rel="stylesheet" href="../css/cover.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="dist/ng-sortable.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/ng-sortable.style.min.css">
         <script src="/js/module.buckets.js"></script>
         <script src="/js/controller.home.js"></script>
         <script src="/js/factory.buckets.js"></script>
         
     </head>
     <body ng-controller="homeController as home">
-            <h1>{{home.greeting}}</h1>
+             <div class="site-wrapper">
 
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <!--<h3 class="masthead-brand">Cover</h3>-->
+
+            </div>
+          </div>
+          <div>
+              <h1 class="cover-heading white">Fill out the form below to start building your "Bucket List"</h1>
+          </div>
+
+          
+            <form ng-submit="home.createUser()">
+                <input class="form-control" ng-model="home.newUser.username" placeholder="Create a User Name">
+                <br>
+                <input class="form-control" ng-model="home.newUser.email" placeholder="Enter Email">
+                <br>
+                <input class="form-control" ng-model="home.newUser.firstname" placeholder="Enter First Name" ng-list>
+                <br>
+                <input class="form-control" ng-model="home.newUser.lastname" placeholder="Enter Last Name" ng-list>
+                <br>
+                <input class="form-control" ng-model="home.newUser.birthdate" placeholder="Enter Birth Date in mm-dd-yyyy format" ng-list>
+                <br>
+                <Select ng-model="home.newUser.sex" class="dropdown" placeholder="Gender">
+
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                </Select>
+                <br>
+                <br>
+                <input class="form-control" ng-model="home.newUser.password" placeholder="Create Password" ng-list>
+                <br>
+                <input type="submit" class="btn btn-default">
+            </form>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>The Bucket List created by Thomas E. Cowern at <a href="http://www.refactoru.com/">RefactorU</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+<!--
             <form ng-submit="home.createUser()">
                 <input class="form-control" ng-model="home.newUser.username" placeholder="Create a User Name">
 
@@ -34,7 +88,7 @@
                 <input class="form-control" ng-model="home.newUser.password" placeholder="Create Password" ng-list>
 
                 <input type="submit">
-            </form>
+            </form>-->
 
         <!--<ul>
             <li ng-repeat="bucket in home.bucketList">

@@ -69,7 +69,16 @@ function bucketFactory ($http) {
                 taskcomp: taskComp
             };
             return $http.put('/api/taskcomp/', data);
-        }
+        }, 
+        
+        groupBucket : function(bucketId, topGroup) {
+            // dateItem = dateItem ? '/' + dateItem : ''
+            var data = {
+                bucketid: bucketId,
+                topgroup: topGroup
+            };
+            return $http.put('/api/bucketgroup/', data);
+        },
 
     }
 }

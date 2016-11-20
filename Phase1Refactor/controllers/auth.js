@@ -27,9 +27,9 @@ module.exports = {
                         res.status(403).json({ message: 'Invalid username or password' });
                     } else {
                         req.session.userId = user._id;
-                        // res.redirect('/index.html');
+                        // res.redirect('html/index.html');
                         res.send({ message: 'Login success!', userId : req.session.userId });
-                        // res.redirect('/index.html');
+                        
                     }
                 })
             }
@@ -63,6 +63,7 @@ module.exports = {
         session: (req, res, next) => { // this will be the middleware that checks for a loggedin user
             console.log("Inside session");
             if( req.session.userId ) {
+                // res.redirect('/html/index.html');
                 next();
             } else {
                 // res.redirect('Blue');

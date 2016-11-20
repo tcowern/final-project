@@ -1,7 +1,6 @@
 angular.module('Buckets', ["xeditable"])
     .controller('homeController', homeController);
-    
-    
+
 
 homeController.$inject = ['bucketFactory', "$http"];
 
@@ -26,6 +25,7 @@ function homeController (bucketFactory, $http){
             //  home.BucketItem = {};
             user = res.data;
             console.log("Loser: ",user);
+        
             
             // console.log("Get attempt: ", user);
         })
@@ -167,6 +167,24 @@ function homeController (bucketFactory, $http){
 
     }
 
+    home.groupBucket = function (bucketId, topGroup) {
+        
+        console.log("bucketId: ", bucketId);  //buckets._id, buckets.topgroup
+        console.log("topGroup: ", topGroup);
+        
+        bucketFactory.groupBucket(bucketId, topGroup)
+
+            .then(function(returnData){
+
+                console.log("bucket comp response from server: ", returnData);
+                // home.getBucket(); // get many
+                // home.Task.taskname = '';
+            }).catch(function(err){
+                console.log("bucket comp error: ", err);
+            });
+
+    }
+
     home.getAllTask = function(){
         console.log("Hit the get task function");
         console.log("user in get all",user);
@@ -205,11 +223,15 @@ function homeController (bucketFactory, $http){
             });
     }    
 
+
 }
+
+
 
 angular.module('Buckets')
     .run(function(editableOptions) {
         editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });
+
 
 

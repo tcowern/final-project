@@ -29,6 +29,19 @@ function bucketComp (req, res) {
 
 }
 
+function bucketGroup (req, res) {
+    console.log("bucketgroup req.body",req.body);
+        Bucket.findByIdAndUpdate(req.body.bucketid, {topgroup: req.body.topgroup}, {new: true}, (err, document)=>{
+            // res.send(err || documents)
+            if(err){
+                res.send(err);
+            } else {
+            console.log("DOCUMENT from bucketgroup",document);
+            res.send(document);
+            }
+    });
+
+}
 
 function get (req, res) {
     // get One
@@ -93,7 +106,8 @@ module.exports = {
     get    : get,
     addBucket    : addBucket,
     getUserID : getUserID,
-    bucketComp : bucketComp
+    bucketComp : bucketComp,
+    bucketGroup : bucketGroup
 }
 
 // module.exports = {

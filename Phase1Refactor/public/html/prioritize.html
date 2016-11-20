@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="Buckets">
+    <head>
+        <title>Sort Your Bucketlist!</title>
+        
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.5.0/css/xeditable.css">
+        <link rel="stylesheet" href="../css/cover.css">
+        <link rel="stylesheet" type="text/css" href="dist/ng-sortable.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/ng-sortable.style.min.css">
+        <script src="/js/module.buckets.js"></script>
+        <script src="/js/controller.home.js"></script>
+        <script src="/js/factory.buckets.js"></script>
+        
+    </head>
+    <body ng-controller="homeController as home" data-ng-init="home.getAllTask()">
+		<a href="/logout">Logout</a>
+<section>
+<div>
+  <h2 class="center">Below is your bucket list!</h2>
+</div>
+<div>
+  <h3 class="headButton center"> You can prioritize it on this page...</h3>
+</div>
+
+
+</section>
+
+
+
+
+<section  class="backgroundbucketlist">
+    <div class="container-fluid">
+      <div><br>
+          <div>
+              <div >
+                  <ul ng-model="home.bucketlist" class="lists">
+                    <li ng-repeat="buckets in home.bucketList ">{{buckets.bucketname}}  Has My Focus: <a onaftersave="home.groupBucket(buckets._id, buckets.topgroup)" href="#" editable-checkbox="buckets.topgroup" e-title="Priority!">{{ buckets.topgroup && "Priority!" || "Not a Priority!" }}
+                        </a></l1>
+                  </ul>
+
+                </div>
+          </div>
+      </div>
+  </div>
+</section>
+        <br>
+        <br>
+        <br>
+        <br>
+<h4>Next we'll add dates to your Bucket List items</h4>
+<form action="/datebuckets" method="GET">
+        <Button class="btn btn-default">Click to add dates</Button>
+  </form>
+      </body>
+</html>
