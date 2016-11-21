@@ -14,28 +14,45 @@
         
     </head>
     <body ng-controller="homeController as home">
-            <a href="/logout">Logout</a>     
-            <h1>Use the form below to add items to your bucket list.</h1>
+        			<br>
+			<br>
+        <a class="btn btn-default" role="button" data-toggle="collapse" href="#Menu" aria-expanded="false" aria-controls="collapseExample">Menu</a>
 
+<div class="collapse" id="Menu">
+    <br>
+  <div class="well">
+    <a class="menu" href="/logout">Logout</a>
+	<a class="menu" href="/html/prioritize.html">Prioritize Bucket List Items!</a> 
+    <a class="menu" href="/html/datebuckets.html">Edit Bucket List Dates!</a>
+    <a class="menu" href="/html/addtasks.html">Add More Bucket List Tasks!</a>
+    <a class="menu" href="/html/bucketlist.html">View Your Bucket List!</a>
+  </div>
+</div>
+       <br>
+       <br>
+       <br>
+       <br>    
+            <h1>Use the form below to add items to your bucket list.</h1>
             <form ng-submit="home.addBucket()">
                 <input class="form-control addbucket" ng-model="home.BucketItem.bucketname" placeholder="Bucket List Item">
                 <br>
                 <input type="submit" class="btn btn-default">
             </form>
             <br>
-        <ul class="lists">
-            <h3><li ng-repeat="buckets in home.bucketList">
-                {{buckets.bucketname}}
-            </h3></li>
-
-        </ul>
+           	<div ng-repeat="buckets in home.bucketList track by $index">
+				<div class="center" id="list4">
+					<ul class='center'>
+						<li><h2><a href="#"> {{buckets.bucketname}} </a></h2></li>
+					</ul>
+				</div>
+			</div>
         <br>
         <br>
         <br>
         <br>
         <h4>Once you've completed your Bucket List, we'll prioritize your Bucket List items</h4>
     <form action="/prioritize" method="GET">
-        <Button class="btn btn-default" btn-lge>Click to add dates</Button>
+        <Button class="btn btn-default" btn-lge>Click to prioritize</Button>
   </form>
     </body>
 </html>

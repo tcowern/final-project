@@ -16,14 +16,31 @@
         
     </head>
     <body ng-controller="homeController as home">
-		<a href="/logout">Logout</a> 
+			<br>
+			<br>
+	<a class="btn btn-default" role="button" data-toggle="collapse" href="#Menu" aria-expanded="false" aria-controls="collapseExample">Menu</a>
+
+<div class="collapse" id="Menu">
+    <br>
+  <div class="well">
+    <a class="menu" href="/logout">Logout</a>
+    <a class="menu" href="/html/index.html">Add More Bucket List Items!</a>
+		<a class="menu" href="/html/prioritize.html">Prioritize Bucket List Items!</a> 
+    <a class="menu" href="/html/datebuckets.html">Edit Bucket List Dates!</a>
+    <a class="menu" href="/html/bucketlist.html">View Your Bucket List!</a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br> 
 <div>
 	<h2 class="center">Next we're going to add tasks to your "Bucket List" items.</h2>
 </div>
 <div>
 	<h3 class="headButton center"> Select the "Bucket List" item from the dropdown below and enter a task in the task textbox.</h3>
 
-
+<br>
 <select class="input dropdown" value="home.selectedName._id" ng-model="home.selectedName" ng-options="x.bucketname for x in home.bucketList" ng-change="home.test()">
 </select>
 <br>
@@ -40,20 +57,17 @@
 
 <section>
 	<div class="container-fluid">
-		<div><br>
-			<div  class="center" ng-repeat="tasks in home.taskList">
-				<div>
-					<ul>
-						<ul class="center">
-							<h2> {{tasks.taskname}} </h2>
-						</ul>
+
+			<div ng-repeat="tasks in home.taskList">
+				<div class="center" id="list4">
+
 						<ul>
-							<!--<li class=" tasks " ng-repeat="item in bucket.task "> {{ item }}</li>-->
+						<li><h2> <a href="#">{{tasks.taskname}}</a></h2></li>
 						</ul>
-					</ul>
+
 				</div>
 			</div>
-		</div>
+
 	</div>
 	<br>
 	<br>

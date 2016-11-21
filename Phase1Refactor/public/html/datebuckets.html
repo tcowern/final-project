@@ -16,37 +16,37 @@
         
     </head>
     <body ng-controller="homeController as home">
-		<a href="/logout">Logout</a>
-<div>
-	<h2 class="center">Next we're going to add dates to your "Bucket List" items.</h2>
+						<br>
+			<br>
+		<a class="btn btn-default" role="button" data-toggle="collapse" href="#Menu" aria-expanded="false" aria-controls="collapseExample">Menu</a>
+
+<div class="collapse" id="Menu">
+    <br>
+  <div class="well">
+    <a class="menu" href="/logout">Logout</a>
+    <a class="menu" href="/html/index.html">Add More Bucket List Items!</a>
+    <a class="menu" href="/html/prioritize.html">Prioritize Bucket List Items!</a>
+    <a class="menu" href="/html/addtasks.html">Add More Bucket List Tasks!</a>
+    <a class="menu" href="/html/bucketlist.html">View Your Bucket List!</a>
+  </div>
 </div>
-<!--<div>
-	<h3 class="headButton center"> Select the "Bucket List" item from the dropdown below and enter a task in the task textbox.</h3>
-
-
-<select value="home.selectedName._id" ng-model="home.selectedName" ng-options="x.bucketname for x in home.bucketList" ng-change="home.test()">
-</select>
 <br>
-<br>-->
+<br>
+<br>
+<br>
+<div>
+	<h2 class="center">Next we're going to set dates for your "Bucket List" items.</h2>
+</div>
 
-<!--<div class="center">
-	Enter your task: <input type="text" id="task" value="" ng-model="home.Task.taskname" placeholder="Enter a Task Here">
-	<button type="submit" ng-click="home.addTask()">Submit</button>
-</div>-->
 
 <section>
-	<div class="container-fluid">
+	<div>
 		<div><br>
-			<div class="tasklist well well-sm" ng-repeat="buckets in home.bucketList">
-				<div>
-					<ul>
-						<ul>
-							<h2> {{buckets.bucketname}} Due Date:  <a onaftersave="home.dateBucket(buckets._id, buckets.bucketdate)" editable-text="buckets.bucketdate"  e-datepicker-popup="dd-MMMM-yyyy" href="#">{{ buckets.bucketdate }}</a></h2>
+			<div ng-repeat="buckets in home.bucketList">
+				<div class="center" id="list4">
+						<ul class="center">
+							<li><h2 class="highlight">{{buckets.bucketname}} </h2><h3>Due Date:<a onaftersave="home.dateBucket(buckets._id, buckets.bucketdate)" editable-text="buckets.bucketdate"  e-datepicker-popup="dd-MMMM-yyyy" href="#">{{ buckets.bucketdate }}</a></h3></li>
 						</ul>
-						<ul>
-							<!--<li class=" tasks " ng-repeat="item in bucket.task "> {{ item }}</li>-->
-						</ul>
-					</ul>
 				</div>
 			</div>
 		</div>

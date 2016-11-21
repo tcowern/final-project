@@ -35,6 +35,7 @@ body {
   color: #fff;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+  vertical-align: auto;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -185,5 +186,47 @@ body {
 }
 
 .center {
-padding: 0;
+  display: block;
+  margin: auto;
+  padding: 0;
 }
+
+.highlight {
+  color: white;
+  font: verdana;
+}
+ 
+/* LIST #4 */
+#list4 { width:50%; font-family:Georgia, Times, serif; font-size:15px; }
+#list4 ul { list-style: none; }
+#list4 ul li {  }
+#list4 ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:30px;
+  border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:10px; cursor:pointer; }
+#list4 ul li a:hover { color:#FFFFFF; background-image:url(../images/hover.png); background-repeat:repeat-x; }
+#list4 ul li a strong { margin-right:10px; }
+
+.centerbucket {
+  display: block;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+/* Nested #5 */
+#nested { color:#eee; }
+#nested ul { font-size:18px; list-style: none;}
+#nested ul li { }
+#nested ul li ul { list-style-image: url("../images/nested.png"); padding:5px 0 5px 18px; font-size:15px; }
+#nested ul li ul li { color:#bfe1f1; height:15px; margin-left:10px; }
+
+.menu {
+  color: blue;
+  padding-left: 10px;
+}
+
+/* LIST #2 */
+#blmain { width:100%; }
+#blmain ol { font-style:italic; font-family:Georgia, Times, serif; font-size:24px; color:#bfe1f1;  }
+#blmain ol li { }
+#blmain ol li p { padding:8px; font-style:normal; font-family:Arial; font-size:13px; color:#eee; border-left: 1px solid #999; }
+#blmain ol li p em { display:block; }

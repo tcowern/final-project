@@ -18,7 +18,24 @@
         
     </head>
     <body ng-controller="homeController as home" data-ng-init="home.getAllTask()">
-		<a href="/logout">Logout</a>
+      			<br>
+			<br>
+		<a class="btn btn-default" role="button" data-toggle="collapse" href="#Menu" aria-expanded="false" aria-controls="collapseExample">Menu</a>
+
+<div class="collapse" id="Menu">
+    <br>
+  <div class="well">
+    <a class="menu" href="/logout">Logout</a>
+    <a class="menu" href="/html/index.html">Add More Bucket List Items!</a>
+    <a class="menu" href="/html/datebuckets.html">Edit Bucket List Dates!</a>
+    <a class="menu" href="/html/addtasks.html">Add More Bucket List Tasks!</a>
+    <a class="menu" href="/html/bucketlist.html">View Your Bucket List!</a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
 <section>
 <div>
   <h2 class="center">Below is your bucket list!</h2>
@@ -37,10 +54,10 @@
     <div class="container-fluid">
       <div><br>
           <div>
-              <div >
-                  <ul ng-model="home.bucketlist" class="lists">
-                    <li ng-repeat="buckets in home.bucketList ">{{buckets.bucketname}}  Has My Focus: <a onaftersave="home.groupBucket(buckets._id, buckets.topgroup)" href="#" editable-checkbox="buckets.topgroup" e-title="Priority!">{{ buckets.topgroup && "Priority!" || "Not a Priority!" }}
-                        </a></l1>
+              <div class="center" id="list4">
+                  <ul ng-model="home.bucketlist" class="center">
+                    <li class='center' ng-repeat="buckets in home.bucketList "><h2>{{buckets.bucketname}}  Priority: <a onaftersave="home.groupBucket(buckets._id, buckets.topgroup)" href="#" editable-checkbox="buckets.topgroup" e-title="Priority!">{{ buckets.topgroup && "Priority!" || "Not a Priority!" }}</a></h2>
+                        </l1>
                   </ul>
 
                 </div>
