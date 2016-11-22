@@ -214,8 +214,8 @@ body {
 
 /* Nested #5 */
 #nested { color:#eee; }
-#nested ul { font-size:18px; list-style: none;}
-#nested ul li { }
+#nested ul { font-size:18px; list-style: none; }
+#nested ul li {}
 #nested ul li ul { list-style-image: url("../images/nested.png"); padding:5px 0 5px 18px; font-size:15px; }
 #nested ul li ul li { color:#bfe1f1; height:15px; margin-left:10px; }
 
@@ -230,3 +230,21 @@ body {
 #blmain ol li { }
 #blmain ol li p { padding:8px; font-style:normal; font-family:Arial; font-size:13px; color:#eee; border-left: 1px solid #999; }
 #blmain ol li p em { display:block; }
+
+.left {
+  text-align: left;
+}
+
+.task {
+  font-size: x-large;
+  list-style: square;
+  text-align: left;
+  padding-left: 10px;
+  margin-left: 30px;
+}
+
+.backgroundbucketlist {
+
+  background-color: rgba(0, 0, 255, 0.5);
+  /*opacity: .5;*/
+}

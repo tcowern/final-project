@@ -26,8 +26,9 @@
     <a class="menu" href="/logout">Logout</a>
     <a class="menu" href="/html/index.html">Add More Bucket List Items!</a>
     <a class="menu" href="/html/datebuckets.html">Edit Bucket List Dates!</a>
-    <a class="menu" href="/html/addtasks.html">Add More Bucket List Tasks!</a>
     <a class="menu" href="/html/prioritize.html">Prioritize Bucket List Items!</a>
+    <a class="menu" href="/html/addtasks.html">Add More Bucket List Tasks!</a>
+    
   </div>
 </div>
 <br>
@@ -44,25 +45,27 @@
 
 
 </section>
+<br>
+<br>
 
 
 
 
-<section  class="backgroundbucketlist">
+<section class="backgroundbucketlist">
     <div class="container-fluid">
-      <div><br>
-          <div >
-              <div id="nested" ng-repeat="buckets in home.bucketList">
-                  <ul> 
-                      <li><h2 class="bucketprint"><em>{{buckets.bucketname}}</em>, Due {{ buckets.bucketdate }}, Status: <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">
-      {{ buckets.bucketcomp && "Complete" || "Incomplete!" }}
-  </a></h2></li></ul>
-                          <ul>
-                                <li class="taskprint" ng-repeat="tasks in home.taskList  | filter:buckets._id "><h3>         {{tasks.taskname}}, Status: <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
-      {{ tasks.taskcomp && "Complete" || "Incomplete!" }}</h3></li>
-                          </ul>
-                        
-                  </div>
+        <div>
+            <div >
+                <div id="nested" ng-repeat="buckets in home.bucketList">
+                    <ul> 
+                        <li class="left">
+                            <h2>{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status: <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">{{ buckets.bucketcomp && "Complete" || "Incomplete!" }}</a></h2>
+                        </li>
+                    </ul>
+                    <ul ng-repeat="tasks in home.taskList  | filter:buckets._id ">
+                        <li  class="task">{{tasks.taskname}}, Status: <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
+      {{ tasks.taskcomp && "Complete" || "Incomplete!" }}</li>
+                    </ul>
+                </div>
           </div>
       </div>
   </div>
