@@ -7,7 +7,6 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.4.0/js/xeditable.js"></script>
-        <script type="text/javascript" src="dist/ng-sortable.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
         <link rel="stylesheet" href="../css/cover.css">
         <script src="/js/module.buckets.js"></script>
@@ -16,59 +15,50 @@
         
     </head>
     <body ng-controller="homeController as home" data-ng-init="home.getAllTask()">
-        			<br>
-			<br>
-    <a class="btn btn-default" role="button" data-toggle="collapse" href="#Menu" aria-expanded="false" aria-controls="collapseExample">Menu</a>
-
-<div class="collapse" id="Menu">
     <br>
-  <div class="well">
-    <a class="menu" href="/logout">Logout</a>
-    <a class="menu" href="/html/index.html">Add More Bucket List Items!</a>
-    <a class="menu" href="/html/datebuckets.html">Edit Bucket List Dates!</a>
-    <a class="menu" href="/html/prioritize.html">Prioritize Bucket List Items!</a>
-    <a class="menu" href="/html/addtasks.html">Add More Bucket List Tasks!</a>
-    
-  </div>
-</div>
+    <br>
+        <a class="btn btn-default" role="button" data-toggle="collapse" href="#Menu" aria-expanded="false" aria-controls="collapseExample">Menu</a>
+        <div class="collapse" id="Menu">
+        <br>
+            <div class="well"> 
+                <a class="menu" href="/logout">Logout</a>
+                <a class="menu" href="/html/index.html">Add More Bucket List Items!</a>
+                <a class="menu" href="/html/datebuckets.html">Edit Bucket List Dates!</a>
+                <a class="menu" href="/html/prioritize.html">Prioritize Bucket List Items!</a>
+                <a class="menu" href="/html/addtasks.html">Add More Bucket List Tasks!</a> 
+            </div>
+        </div>
+        <br>
+        <br>
+        <!--Logged in as: {{ home.user }}-->
+        <section>
+            <div>
+                <h2 class="center">Below is your bucket list!</h2>
+            </div>
+            <div>
+                <h3 class="headButton center"> You can use it to work toward accomplishisng your goals...or as digital toilet paper when the apocalypse comes...</h3>
+            </div>
+        </section>
 <br>
 <br>
-        
-        
-<section>
-<div>
-  <h2 class="center">Below is your bucket list!</h2>
-</div>
-<div>
-  <h3 class="headButton center"> You can use it to work toward accomplishisng your goals...or as digital toilet paper when the apocalypse comes...</h3>
-</div>
-
-
-</section>
-<br>
-<br>
-
-
-
-
-<section class="backgroundbucketlist">
-    <div class="container-fluid">
-        <div>
-            <div >
-                <div id="nested" ng-repeat="buckets in home.bucketList">
-                    <ul> 
-                        <li class="left">
-                            <h2>{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status: <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">{{ buckets.bucketcomp && "Complete - Awesome!" || "Incomplete!" }}</a></h2>
-                        </li>
-                    </ul>
-                    <ul ng-repeat="tasks in home.taskList  | filter:buckets._id ">
-                        <li  class="task">{{tasks.taskname}}, Status: <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
-      {{ tasks.taskcomp && "Complete  - Good Job!" || "Incomplete!" }}</li>
-                    </ul>
+        <section class="backgroundbucketlist">
+            <div class="container-fluid">
+                <div>
+                    <div >
+                        <div id="nested" ng-repeat="buckets in home.bucketList">
+                            <ul> 
+                                <li class="left">
+                                    <h2>{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status: <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">{{ buckets.bucketcomp && "Complete - Awesome!" || "Incomplete!" }}</a></h2>
+                                </li>
+                            </ul>
+                            <ul ng-repeat="tasks in home.taskList  | filter:buckets._id ">
+                                <li  class="task">{{tasks.taskname}}, Status: <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
+            {{ tasks.taskcomp && "Complete  - Good Job!" || "Incomplete!" }}</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-          </div>
-      </div>
-  </div>
-</section>
+            </div>
+        </section>
       </body>
 </html>

@@ -14,17 +14,18 @@ function homeController (bucketFactory, $http){
     home.BucketItem = {};
     home.greeting = 'Welcome to the bucket list!';
     home.user = {complete: false};  
-    var user = "";
+    home.user = "";
     var task = "";
-
+    home.days = [];
 
      $http.get('/api/userID')
         .then(function(res){
             console.log("getUserID api :",res);
              home.getBucket(res.data); // get one
             //  home.BucketItem = {};
-            user = res.data;
-            console.log("Loser: ",user);
+            home.user = res.data;
+            console.log("Loser: ",home.user);
+            return home.user;
         
             
             // console.log("Get attempt: ", user);
@@ -67,8 +68,22 @@ function homeController (bucketFactory, $http){
                 console.log("buckets",returnData.data);
                 if(returnData.data !== undefined){
                     // if array (has length), store in bucketList
+                    
                     home.bucketList = returnData.data;
                     console.log("Bucekys", home.bucketList)
+                    for (var i = 0; i < home.bucketList.length; i++) {
+                        var newDate = home.bucketList[i].bucketdate
+                        // console.log("This is the new date",newDate);
+                        // console.log(Date());
+                        var date1 = new Date();
+                        var date2 = new Date(home.bucketList[i].bucketdate);
+                        var timeDiff = Math.abs(date2 - date1);
+                        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                        // console.log("Days remaining: ", diffDays);
+                        home.days.push(diffDays);
+                        console.log("Days remaining: ", home.days[i]);
+                    }
+                    
                     // return home.bucketList;
                 }
                 else{
@@ -187,7 +202,7 @@ function homeController (bucketFactory, $http){
 
     home.getAllTask = function(){
         console.log("Hit the get task function");
-        console.log("user in get all",user);
+        console.log("user in get all",home.user);
         bucketFactory.getAllTasks()
             .then(function(returnData){
                 console.log("Tasks",returnData.data);

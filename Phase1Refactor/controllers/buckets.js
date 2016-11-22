@@ -57,6 +57,7 @@ function get (req, res) {
             if(!document){
                 return res.send('No one with that id')
             }
+            // console.log("Get Doc: ", document);
             res.send(document);
         });
     }
@@ -96,6 +97,7 @@ function addBucket (req, res) {
 }
 
 function getUserID(req, res) {
+    console.log("req sess: ",req.session);
     return res.send(req.session.userId);
 }
 
