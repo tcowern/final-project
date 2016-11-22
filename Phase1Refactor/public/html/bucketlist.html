@@ -58,12 +58,12 @@
                 <div id="nested" ng-repeat="buckets in home.bucketList">
                     <ul> 
                         <li class="left">
-                            <h2>{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status: <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">{{ buckets.bucketcomp && "Complete" || "Incomplete!" }}</a></h2>
+                            <h2>{{buckets.bucketname}}, Due {{ buckets.bucketdate }}, Status: <a onaftersave="home.compBucket(buckets._id, buckets.bucketcomp)" href="#" editable-checkbox="buckets.bucketcomp" e-title="Complete">{{ buckets.bucketcomp && "Complete - Awesome!" || "Incomplete!" }}</a></h2>
                         </li>
                     </ul>
                     <ul ng-repeat="tasks in home.taskList  | filter:buckets._id ">
                         <li  class="task">{{tasks.taskname}}, Status: <a onaftersave="home.compTask(tasks._id, tasks.taskcomp)" href="#" editable-checkbox="tasks.taskcomp" e-title="Complete">
-      {{ tasks.taskcomp && "Complete" || "Incomplete!" }}</li>
+      {{ tasks.taskcomp && "Complete  - Good Job!" || "Incomplete!" }}</li>
                     </ul>
                 </div>
           </div>
