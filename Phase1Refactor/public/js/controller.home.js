@@ -99,7 +99,7 @@ function homeController (bucketFactory, $http){
         bucketFactory.addBucket(home.BucketItem)
             .then(function(returnData){
                 home.BucketItem = {
-                    userid : user
+                    userid : home.user
                 }
                 console.log("addBucket response from server: ", returnData);
                 home.getBucket(); // get many
